@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人作品集</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.8;
+        }
+
+        /* 顶部导航栏 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: #111c31;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f8fafc;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* 首页 */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(
+                circle at top, #1e3a5f, #0f172a 70%
+            );
+        }
+
+        .hero .tag {
+            color: #38bdf8;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 7vw, 64px);
+            margin: 18px 0;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            color: #cbd5e1;
+        }
+
+        .hero p {
+            max-width: 620px;
+            margin: 20px 0 30px;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 26px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #7dd3fc;
+            transform: translateY(-3px);
+        }
+
+        /* 通用区块 */
+        section {
+            padding: 75px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 38px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        /* 个人介绍 */
+        .about {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        /* 技能 */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(180px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .skill {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .skill h3 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        /* 项目作品 */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(220px, 1fr)
+            );
+            gap: 22px;
+        }
+
+        .project {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 25px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .project .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .project a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        /* 联系方式 */
+        .contact {
+            text-align: center;
+            background: #111c31;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 22px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* 手机适配 */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 4%;
+            }
+
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo">我的作品集</div>
+
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#skills">我的技能</a></li>
+            <li><a href="#projects">项目作品</a></li>
+            <li><a href="#contact">联系我</a></li>
+        </ul>
+    </nav>
+
+    <!-- 首页 -->
+    <header class="hero" id="home">
+        <div class="tag">欢迎来到我的个人网站</div>
+
+        <h1>你好，我是<span>MO</span></h1>
+
+        <h2>网页开发者 · 设计爱好者</h2>
+
+        <p>
+            我热爱网页设计与编程，专注于打造美观、
+            实用、简洁的网页体验，让每一个创意都变成现实。
+        </p>
+
+        <a href="#projects" class="btn">查看我的作品</a>
+    </header>
+
+    <!-- 关于我 -->
+    <section id="about">
+        <h2 class="section-title">关于<span>我</span></h2>
+
+        <div class="about">
+            <p>
+                你好！欢迎来到我的个人作品集。
+                我是一名热爱互联网与技术的开发者，
+                喜欢学习新技术，也喜欢通过代码解决实际问题。
+            </p>
+
+            <p>
+                我擅长网页布局、界面设计以及交互效果制作，
+                希望通过持续学习与实践，创造更好的数字体验。
+            </p>
+        </div>
+    </section>
+
+    <!-- 我的技能 -->
+    <section id="skills">
+        <h2 class="section-title">我的<span>技能</span></h2>
+
+        <div class="skills">
+            <div class="skill">
+                <h3>网页结构</h3>
+                <p>使用 HTML 构建网页内容</p>
+            </div>
+
+            <div class="skill">
+                <h3>网页美化</h3>
+                <p>使用 CSS 设计页面样式</p>
+            </div>
+
+            <div class="skill">
+                <h3>交互开发</h3>
+                <p>使用 JavaScript 实现动态效果</p>
+            </div>
+
+            <div class="skill">
+                <h3>响应式设计</h3>
+                <p>适配手机、平板和电脑</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目作品 -->
+    <section id="projects">
+        <h2 class="section-title">项目<span>作品</span></h2>
+
+        <div class="projects">
+            <div class="project">
+                <div class="icon">🌐</div>
+                <h3>个人作品集网站</h3>
+                <p>
+                    展示个人介绍、专业技能和项目经历的响应式网站。
+                </p>
+                <a href="#contact">了解更多 →</a>
+            </div>
+
+            <div class="project">
+                <div class="icon">🛒</div>
+                <h3>网上购物页面</h3>
+                <p>
+                    简洁美观的商品展示页面，帮助用户快速了解商品。
+                </p>
+                <a href="#contact">了解更多 →</a>
+            </div>
+
+            <div class="project">
+                <div class="icon">📱</div>
+                <h3>待办事项应用</h3>
+                <p>
+                    一个帮助用户记录任务、安排日程的简单应用。
+                </p>
+                <a href="#contact">了解更多 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我 -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">联系<span>我</span></h2>
+
+        <p>
+            如果你有合作想法、项目需求或任何问题，
+            欢迎通过电子邮件联系我。
+        </p>
+
+        <a
+            class="btn"
+            href="mailto:mocuiqin2013@gmail.com"
+        >
+            给我发送邮件
+        </a>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>
+            版权所有 © <span id="year"></span>MO
+            · 保留所有权利
+        </p>
+    </footer>
+
+    <script>
+        // 自动显示当前年份
+        document.getElementById("2026").textContent =
+            new Date(22).getFullYear();
+    </script>
+
+</body>
+</html>
